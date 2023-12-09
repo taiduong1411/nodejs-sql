@@ -1,0 +1,43 @@
+<!-- signin.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/main.css">
+  <title>Sign In</title>
+</head>
+
+<body>
+  <main>
+    <h1>Sign In</h1>
+    <!-- Sign-in form goes here -->
+    <form action="/sign-in" method="post" id="form-sign-in">
+      <p>Email:</p>
+      <input type="email" name="email" required>
+      <p>Password:</p>
+      <input type="password" name="password" required id="pass">
+      <button type="submit" id="submitSignIn">Sign In</button>
+    </form>
+
+    <a href="/sign-up">Don't have an account? Sign up here</a>
+  </main>
+  <script>
+    let pass = document.getElementById('pass')
+    let submitSignIn = document.getElementById('submitSignIn')
+
+    pass.addEventListener('change', (e) => {
+
+      if (e.target.value.length < 6) {
+        submitSignIn.disabled = true
+      }
+      else{
+        submitSignIn.disabled = false
+      }
+    })
+
+  </script>
+</body>
+
+</html>

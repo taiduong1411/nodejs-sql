@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Details</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Email Details</h1>
+
+    <% if (email) { %>
+      <div>
+        <h2><%= email.subject %></h2>
+        <p>From: <%= email.sender_id %></p>
+        <p>To: <%= email.recipient_id %></p>
+        <p>Sent: <%= email.sent_at %></p>
+        <p><strong>Message:</strong></p>
+        <p><%= email.body %></p>
+
+        <% if (email.attachment) { %>
+          <p><strong>Attachment:</strong></p>
+          <img src="<%= email.attachment %>" alt="Attachment">
+        <% } %>
+      </div>
+    <% } else { %>
+      <p>The requested email is not available.</p>
+    <% } %>
+
+    <a href="/inbox">Return to Inbox</a>
+  </div>
+</body>
+</html>
